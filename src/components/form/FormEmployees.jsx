@@ -57,8 +57,10 @@ const SaveButton = styled.button`
   border: solid 1px white;
   border-radius: 1rem;
   color: white;
+  z-index: 1;
+  position: relative;
+  
   &&:hover {
     background: purple;
-    border: purple;
   }
 `;
