@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Formik, Field, Form, ErrorMessage } from "formik";
+import { Formik, Field, Form, ErrorMessage, resetForm } from "formik";
 import * as Yup from "yup";
 
 const validationSchema = Yup.object().shape({
@@ -30,9 +30,11 @@ function FormEmployees() {
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
-      onSubmit={(values) => handleSubmit(values)}
+      onSubmit={(values) => {
+        handleSubmit(values);-
+      }}
     >
-      {({ resetForm }) => (
+      {({ handleReset }) => (
         <StyledForm>
           <FormTitle>Create Employee</FormTitle>
           <Entries>
@@ -72,7 +74,9 @@ function FormEmployees() {
             </Entrie>
           </Entries>
           <FormButton type="submit">Save</FormButton>
-          <FormButton type="button" onclick={()=> {resetForm}}>Cancel</FormButton>
+          <FormButton type="reset" onClick={handleReset}>
+            Cancel
+          </FormButton>
         </StyledForm>
       )}
     </Formik>
@@ -108,7 +112,7 @@ const Entries = styled.fieldset`
   font-family: "Comfortaa", cursive;
   display: flex;
   flex-direction: column;
-  gap:0.5rem;
+  gap: 0.5rem;
 `;
 
 const StyledLegend = styled.legend`
