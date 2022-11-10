@@ -1,24 +1,53 @@
 import React from "react";
 import styled from "styled-components";
+import { Formik, Field, Form, ErrorMessage } from "formik";
+import * as Yup from "yup";
+
+const validationSchema = Yup.object().shape({
+  firstName: Yup.string().required("Ce champ est obligatoire"),
+  lastName: Yup.string().required("Ce champ est obligatoire"),
+  birthDate: Yup.string().required("Ce champ est obligatoire"),
+  startDate: Yup.string().required("Ce champ est obligatoire"),
+});
+
+const initialValues = {
+  firstName: "",
+  lastName: "",
+  birthDate: "",
+  startDate: "",
+};
+
+const handleSubmit = (values) => {
+  console.log(values);
+};
 
 function FormEmployees() {
   return (
-    <FormWrapper>
-      <FormTitle>Create Employee</FormTitle>
-      <EntriesWrapper>
-        <EntriesLegend>Employee</EntriesLegend>
-      </EntriesWrapper>
-      <EntriesWrapper>
-        <EntriesLegend>Address</EntriesLegend>
-      </EntriesWrapper>
-      <SaveButton>Save</SaveButton>
-    </FormWrapper>
+    <Formik
+      initialValues={initialValues}
+      validationSchema={validationSchema}
+      onSubmit={(values) => handleSubmit(values)}
+    >
+      {({ resetForm }) => (
+        <StyledForm>
+          <FormTitle>Create Employee</FormTitle>
+          <Entries>
+            <StyledLegend>Employee</StyledLegend>
+          </Entries>
+          <Entries>
+            <StyledLegend>Address</StyledLegend>
+          </Entries>
+          <FormButton type="submit">Save</FormButton>
+          <FormButton onclick={resetForm}>Cancel</FormButton>
+        </StyledForm>
+      )}
+    </Formik>
   );
 }
 
 export default FormEmployees;
 
-const FormWrapper = styled.form`
+const StyledForm = styled(Form)`
   width: 30rem;
   background: white;
   border-radius: 0.4rem;
@@ -36,7 +65,7 @@ const FormTitle = styled.h2`
   text-align: center;
 `;
 
-const EntriesWrapper = styled.fieldset`
+const Entries = styled.fieldset`
   border-radius: 0.4rem;
   margin: 1rem;
   padding: 1rem;
@@ -44,12 +73,12 @@ const EntriesWrapper = styled.fieldset`
   font-family: "Comfortaa", cursive;
 `;
 
-const EntriesLegend = styled.legend`
+const StyledLegend = styled.legend`
   text-align: start;
   padding: 0 0.5rem 0 0.5rem;
 `;
 
-const SaveButton = styled.button`
+const FormButton = styled.button`
   margin: 1rem 0 1rem 0;
   padding: 0.5rem;
   width: 10rem;
@@ -59,7 +88,8 @@ const SaveButton = styled.button`
   color: white;
   z-index: 1;
   position: relative;
-  
+  margin: 1rem;
+
   &&:hover {
     background: purple;
   }
