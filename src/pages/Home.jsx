@@ -64,5 +64,5 @@ const HomeMain = styled.main`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
+  /* padding: 1rem; */
 `;
