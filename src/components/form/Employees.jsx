@@ -8,8 +8,8 @@ import { validationSchema } from "./utils/validation";
 import { DayPicker } from "react-day-picker";
 import { format } from "date-fns";
 import { STATES, DEPARTMENTS } from "./utils/selects";
-import Modal from "../modal/modal";
 import useModal from "../modal/utils/useModal";
+import Modal from "../modal/modal";
 
 function Form() {
   const {
@@ -22,7 +22,7 @@ function Form() {
     resolver: yupResolver(validationSchema),
   });
 
-  const { isShowing, toggle } = useModal();
+  const { isShowing, toggle: toggleModal } = useModal();
 
   const [birthDayPicker, setBirthDayPicker] = useState(false);
   const [startDayPicker, setStartDayPicker] = useState(false);
@@ -53,13 +53,14 @@ function Form() {
 
   const formOnSubmit = (data) => {
     console.log(JSON.stringify(data));
-    toggle();
+    toggleModal();
     reset();
   };
 
   return (
     <form onSubmit={handleSubmit(formOnSubmit)}>
       <h2>Create Employee</h2>
+
       <fieldset>
         <legend>Employee</legend>
         <label htmlFor="fistName">First Name :</label>
@@ -69,6 +70,7 @@ function Form() {
           {...register("firstName")}
         />
         <span className="validation">{errors.firstName?.message}</span>
+
         <label htmlFor="lastName">Last Name :</label>
         <input
           type="text"
@@ -76,6 +78,7 @@ function Form() {
           {...register("lastName")}
         />
         <span className="validation">{errors.lastName?.message}</span>
+
         <label htmlFor="birthDate">Date of Birth :</label>
         <input
           type="text"
@@ -84,6 +87,7 @@ function Form() {
           {...register("birthDate")}
         />
         <span className="validation">{errors.birthDate?.message}</span>
+
         {birthDayPicker && (
           <DayPicker
             mode="single"
@@ -103,6 +107,7 @@ function Form() {
           {...register("startDate")}
         />
         <span className="validation">{errors.startDate?.message}</span>
+
         {startDayPicker && (
           <DayPicker
             mode="single"
@@ -115,8 +120,10 @@ function Form() {
           />
         )}
       </fieldset>
+
       <fieldset>
         <legend>Address</legend>
+
         <label htmlFor="street">Street :</label>
         <input type="text" placeholder="Street..." {...register("street")} />
         <span className="validation">{errors.street?.message}</span>
@@ -134,12 +141,15 @@ function Form() {
           ))}
         </select>
         <span className="validation">{errors.state?.message}</span>
+
         <label htmlFor="zipCode">Zip Code :</label>
         <input type="text" placeholder="Zip Code..." {...register("zipCode")} />
         <span className="validation">{errors.zipCode?.message}</span>
       </fieldset>
+
       <fieldset>
         <legend>Company</legend>
+
         <label htmlFor="department">Department :</label>
         <select
           type="text"
@@ -154,13 +164,15 @@ function Form() {
         </select>
         <span className="validation">{errors.department?.message}</span>
       </fieldset>
+
       <div className="bouttons">
         <input type="submit" />
         <button type="reset" onClick={() => formCancel()}>
           Cancel
         </button>
       </div>
-      <Modal isShowing={isShowing} hide={toggle} />
+
+      <Modal isShowing={isShowing} hide={toggleModal} />
     </form>
   );
 }

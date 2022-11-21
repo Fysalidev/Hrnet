@@ -10,7 +10,7 @@ const Modal = ({ isShowing, hide }) =>
             <div className="modal-wrapper">
               <div className="modal">
                 <div className="modal-header">
-                  <h2>Modal Header</h2>
+                  <h3>Employee Created !!!</h3>
                   <button
                     type="button"
                     className="modal-close-button"
@@ -19,7 +19,6 @@ const Modal = ({ isShowing, hide }) =>
                     <span>&times;</span>
                   </button>
                 </div>
-                <div className="modal-body">Hello Modal Here</div>
               </div>
             </div>
           </div>
