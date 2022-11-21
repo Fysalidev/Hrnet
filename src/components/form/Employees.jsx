@@ -3,12 +3,23 @@ import "react-day-picker/dist/style.css";
 import React from "react";
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { validationSchema } from "./utils/validation";
 import { DayPicker } from "react-day-picker";
 import { format } from "date-fns";
 import { STATES, DEPARTMENTS } from "./utils/selects";
 
 function Form() {
-  const { register, handleSubmit, setValue, reset } = useForm();
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    reset,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(validationSchema),
+  });
+
   const [birthDayPicker, setBirthDayPicker] = useState(false);
   const [startDayPicker, setStartDayPicker] = useState(false);
   const [birthday, setBirthday] = useState(new Date());
@@ -52,12 +63,14 @@ function Form() {
           placeholder="First name..."
           {...register("firstName")}
         />
+        <span className="validation">{errors.firstName?.message}</span>
         <label htmlFor="lastName">Last Name :</label>
         <input
           type="text"
           placeholder="Last name..."
           {...register("lastName")}
         />
+        <span className="validation">{errors.lastName?.message}</span>
         <label htmlFor="birthDate">Date of Birth :</label>
         <input
           type="text"
@@ -65,6 +78,7 @@ function Form() {
           onFocus={() => setBirthDayPicker(true)}
           {...register("birthDate")}
         />
+        <span className="validation">{errors.birthDate?.message}</span>
         {birthDayPicker && (
           <DayPicker
             mode="single"
@@ -83,6 +97,7 @@ function Form() {
           onFocus={() => setStartDayPicker(true)}
           {...register("startDate")}
         />
+        <span className="validation">{errors.startDate?.message}</span>
         {startDayPicker && (
           <DayPicker
             mode="single"
@@ -99,9 +114,11 @@ function Form() {
         <legend>Address</legend>
         <label htmlFor="street">Street :</label>
         <input type="text" placeholder="Street..." {...register("street")} />
+        <span className="validation">{errors.street?.message}</span>
 
         <label htmlFor="city">City :</label>
         <input type="text" placeholder="City..." {...register("city")} />
+        <span className="validation">{errors.city?.message}</span>
 
         <label htmlFor="state">State :</label>
         <select type="text" placeholder="Select a state" {...register("state")}>
@@ -111,12 +128,14 @@ function Form() {
             </option>
           ))}
         </select>
+        <span className="validation">{errors.state?.message}</span>
         <label htmlFor="zipCode">Zip Code :</label>
         <input
           type="text"
           placeholder="Zip Code..."
-          {...register("zip Code")}
+          {...register("zipCode")}
         />
+        <span className="validation">{errors.zipCode?.message}</span>
       </fieldset>
       <fieldset>
         <legend>Company</legend>
@@ -132,6 +151,7 @@ function Form() {
             </option>
           ))}
         </select>
+        <span className="validation">{errors.department?.message}</span>
       </fieldset>
       <div className="bouttons">
         <input type="submit" />
