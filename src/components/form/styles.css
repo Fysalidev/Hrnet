@@ -10,12 +10,15 @@ form {
   margin: 0 auto;
 }
 
-h1 {
-  font-weight: 100;
+h2 {
+  font-weight: bold;
+  font-size: 2.6rem;
+  font-family: "Comfortaa", cursive;
   color: white;
   text-align: center;
   padding-bottom: 10px;
   border-bottom: 1px solid rgb(79, 98, 148);
+  margin: 0;
 }
 
 .form {
@@ -28,6 +31,10 @@ fieldset {
   color: #ec5990;
   border: solid 2px;
   border-radius: 4px;
+  margin-top: 16px;
+}
+
+.bouttons {
   margin-top: 16px;
 }
 
@@ -71,23 +78,27 @@ label {
 }
 
 button[type="submit"],
+button[type="reset"],
 input[type="submit"] {
   background: #ec5990;
   color: white;
   text-transform: uppercase;
   border: none;
-  margin-top: 40px;
   padding: 20px;
   font-size: 16px;
   font-weight: 100;
   letter-spacing: 10px;
+  width: 100%;
+  border-radius: 4px;
 }
 
 button[type="submit"]:hover,
+button[type="reset"]:hover,
 input[type="submit"]:hover {
   background: #bf1650;
 }
 
+button[type="submit"]:active,
 button[type="submit"]:active,
 input[type="button"]:active,
 input[type="submit"]:active {
@@ -105,35 +116,6 @@ input[type="button"]:hover {
   transition: 0.3s all;
 }
 
-button[type="submit"],
-input[type="button"],
-input[type="submit"] {
-  -webkit-appearance: none;
-}
-
-.App {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-button[type="button"] {
-  display: block;
-  appearance: none;
-  background: #333;
-  color: white;
-  border: none;
-  text-transform: uppercase;
-  padding: 10px 20px;
-  border-radius: 4px;
-}
-
-button {
-  display: block;
-  appearance: none;
-  margin-top: 40px;
-  border: 1px solid #333;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-  padding: 10px 20px;
-  border-radius: 4px;
+.rdp-day_selected {
+  background: #ec5990 !important;
 }

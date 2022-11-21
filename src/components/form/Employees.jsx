@@ -30,6 +30,12 @@ function Form() {
     }
   }, [startDay, setValue]);
 
+  const formCancel = () => {
+    setBirthDayPicker(false);
+    setStartDayPicker(false);
+    reset();
+  };
+
   const formOnSubmit = (data) => {
     console.log(JSON.stringify(data));
     reset();
@@ -37,7 +43,7 @@ function Form() {
 
   return (
     <form onSubmit={handleSubmit(formOnSubmit)}>
-      <h1>Create Employee</h1>
+      <h2>Create Employee</h2>
       <fieldset>
         <legend>Employee</legend>
         <label htmlFor="fistName">First Name :</label>
@@ -127,7 +133,12 @@ function Form() {
           ))}
         </select>
       </fieldset>
-      <input type="submit" />
+      <div className="bouttons">
+        <input type="submit" />
+        <button type="reset" onClick={() => formCancel()}>
+          Cancel
+        </button>
+      </div>
     </form>
   );
 }
