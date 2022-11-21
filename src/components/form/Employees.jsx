@@ -1,4 +1,4 @@
-import "./styles.css";
+import "./utils/form_styles.css";
 import "react-day-picker/dist/style.css";
 import React from "react";
 import { useState, useEffect } from "react";
@@ -8,6 +8,8 @@ import { validationSchema } from "./utils/validation";
 import { DayPicker } from "react-day-picker";
 import { format } from "date-fns";
 import { STATES, DEPARTMENTS } from "./utils/selects";
+import Modal from "../modal/modal";
+import useModal from "../modal/utils/useModal";
 
 function Form() {
   const {
@@ -19,6 +21,8 @@ function Form() {
   } = useForm({
     resolver: yupResolver(validationSchema),
   });
+
+  const { isShowing, toggle } = useModal();
 
   const [birthDayPicker, setBirthDayPicker] = useState(false);
   const [startDayPicker, setStartDayPicker] = useState(false);
@@ -49,6 +53,7 @@ function Form() {
 
   const formOnSubmit = (data) => {
     console.log(JSON.stringify(data));
+    toggle();
     reset();
   };
 
@@ -155,6 +160,7 @@ function Form() {
           Cancel
         </button>
       </div>
+      <Modal isShowing={isShowing} hide={toggle} />
     </form>
   );
 }
