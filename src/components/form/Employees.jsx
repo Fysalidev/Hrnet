@@ -130,11 +130,7 @@ function Form() {
         </select>
         <span className="validation">{errors.state?.message}</span>
         <label htmlFor="zipCode">Zip Code :</label>
-        <input
-          type="text"
-          placeholder="Zip Code..."
-          {...register("zipCode")}
-        />
+        <input type="text" placeholder="Zip Code..." {...register("zipCode")} />
         <span className="validation">{errors.zipCode?.message}</span>
       </fieldset>
       <fieldset>
