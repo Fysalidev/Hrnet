@@ -7,19 +7,11 @@ import { DayPicker } from "react-day-picker";
 import { format } from "date-fns";
 
 function Form() {
-  const { register, handleSubmit, setValue } = useForm();
+  const { register, handleSubmit, setValue, reset } = useForm();
   const [birthDayPicker, setBirthDayPicker] = useState(false);
   const [startDayPicker, setStartDayPicker] = useState(false);
   const [birthday, setBirthday] = useState(new Date());
   const [startDay, setStartDay] = useState(new Date());
-
-  /* const setBirthDayInput = ()=> {
-    if(birthDayPicker){
-      const formatedBirthDate = format(birthday, "dd/MM/yyyy");
-      setValue("birthDate", formatedBirthDate);
-      setBirthDayPicker(false);
-    }
-  } */
 
   useEffect(() => {
     if (birthDayPicker) {
@@ -39,9 +31,8 @@ function Form() {
 
   const formOnSubmit = (data) => {
     console.log(JSON.stringify(data));
+    reset()
   };
-
-  console.log(birthday);
 
   return (
     <form onSubmit={handleSubmit(formOnSubmit)}>

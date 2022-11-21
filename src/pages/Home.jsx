@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import EmployeesForm from "../components/form/FormEmployees";
+import Employees from "../components/form/Employees";
 
 function Home() {
   return (
@@ -13,7 +13,7 @@ function Home() {
         </HeaderNav>
       </HomeHeader>
       <HomeMain>
-        <EmployeesForm />
+        <Employees />
       </HomeMain>
     </HomeWrapper>
   );
