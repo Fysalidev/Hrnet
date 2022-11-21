@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { DayPicker } from "react-day-picker";
 import { format } from "date-fns";
+import { STATES, DEPARTMENTS } from "./utils/selects";
 
 function Form() {
   const { register, handleSubmit, setValue, reset } = useForm();
@@ -31,7 +32,7 @@ function Form() {
 
   const formOnSubmit = (data) => {
     console.log(JSON.stringify(data));
-    reset()
+    reset();
   };
 
   return (
@@ -45,14 +46,12 @@ function Form() {
           placeholder="First name..."
           {...register("firstName")}
         />
-
         <label htmlFor="lastName">Last Name :</label>
         <input
           type="text"
           placeholder="Last name..."
           {...register("lastName")}
         />
-
         <label htmlFor="birthDate">Date of Birth :</label>
         <input
           type="text"
@@ -71,7 +70,6 @@ function Form() {
             captionLayout="dropdown"
           />
         )}
-
         <label htmlFor="startDate">Start Date :</label>
         <input
           type="text"
@@ -101,11 +99,12 @@ function Form() {
 
         <label htmlFor="state">State :</label>
         <select type="text" placeholder="Select a state" {...register("state")}>
-          <option value="">• • • ? • • •</option>
-          <option value="chat">Chat</option>
-          <option value="chien">Chien</option>
+          {STATES.map((item) => (
+            <option key={item.value} value={item.value}>
+              {item.name}
+            </option>
+          ))}
         </select>
-
         <label htmlFor="zipCode">Zip Code :</label>
         <input
           type="text"
@@ -121,9 +120,11 @@ function Form() {
           placeholder="Select a department"
           {...register("department")}
         >
-          <option value="">• • • ? • • •</option>
-          <option value="chat">Chat</option>
-          <option value="chien">Chien</option>
+          {DEPARTMENTS.map((item) => (
+            <option key={item.value} value={item.value}>
+              {item.name}
+            </option>
+          ))}
         </select>
       </fieldset>
       <input type="submit" />
