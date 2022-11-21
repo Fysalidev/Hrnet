@@ -10,8 +10,16 @@ import { format } from "date-fns";
 import { STATES, DEPARTMENTS } from "./utils/selects";
 import useModal from "../modal/utils/useModal";
 import Modal from "../modal/modal";
+import { add } from "../../redux/reducers";
+import { useDispatch } from "react-redux";
 
 function Form() {
+  const [birthDayPicker, setBirthDayPicker] = useState(false);
+  const [startDayPicker, setStartDayPicker] = useState(false);
+  const [birthday, setBirthday] = useState(new Date());
+  const [startDay, setStartDay] = useState(new Date());
+  const dispatch = useDispatch();
+  
   const {
     register,
     handleSubmit,
@@ -21,14 +29,9 @@ function Form() {
   } = useForm({
     resolver: yupResolver(validationSchema),
   });
-
+  
   const { isShowing, toggle: toggleModal } = useModal();
-
-  const [birthDayPicker, setBirthDayPicker] = useState(false);
-  const [startDayPicker, setStartDayPicker] = useState(false);
-  const [birthday, setBirthday] = useState(new Date());
-  const [startDay, setStartDay] = useState(new Date());
-
+  
   useEffect(() => {
     if (birthDayPicker) {
       const formatedBirthDate = format(birthday, "dd/MM/yyyy");
@@ -51,8 +54,11 @@ function Form() {
     reset();
   };
 
+
   const formOnSubmit = (data) => {
-    console.log(JSON.stringify(data));
+    const newEmployee = JSON.stringify(data)
+    console.log(newEmployee);
+    dispatch(add(newEmployee));
     toggleModal();
     reset();
   };

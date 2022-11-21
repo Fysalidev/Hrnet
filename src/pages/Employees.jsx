@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import React from "react";
 import { Link } from "react-router-dom";
+import Table from "../components/Table/Table";
 
 function Employees() {
   return (
@@ -8,6 +9,7 @@ function Employees() {
       <EmployeesHeader>
         <EmployeesTitle>Current Employees</EmployeesTitle>
       </EmployeesHeader>
+      <Table/>
       <EmployeesFooter>
         <Link to="/">Home</Link>
       </EmployeesFooter>
