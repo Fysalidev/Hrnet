@@ -6,10 +6,9 @@ function Table() {
   console.log('##### MOCK #####')
   const mockedEmployees = employees;
   console.log(mockedEmployees)
-  console.log('##### REDUX #####')
-  const reduxEmployes = useSelector((state => state.employees))
-  console.log(reduxEmployes)
-
+  /* console.log('##### REDUX #####')
+  const reduxEmployes = useSelector((state => state.employees.employees))
+  console.log(reduxEmployes) */
 
   return (
     <div>Tableau</div>

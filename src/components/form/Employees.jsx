@@ -56,8 +56,8 @@ function Form() {
 
 
   const formOnSubmit = (data) => {
-    const newEmployee = JSON.stringify(data)
-    console.log(newEmployee);
+    
+    const newEmployee = data
     dispatch(add(newEmployee));
     toggleModal();
     reset();

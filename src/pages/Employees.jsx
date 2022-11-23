@@ -1,15 +1,26 @@
 import styled from "styled-components";
 import React from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import Table from "../components/Table/Table";
+import { useSelector } from "react-redux";
+import SearchBar, {searchBar} from "../components/SearchBar/SearchBar"
+/* import {employees} from './utils/mockEmployees' */
 
 function Employees() {
+  const employees = useSelector((state) => state.employees.employees);
+  const [searchResults, setSearchResults] = useState([...employees])
+
+  console.log(employees)
+  console.log(searchResults)
+  
   return (
     <EmployeesWrapper>
       <EmployeesHeader>
         <EmployeesTitle>Current Employees</EmployeesTitle>
       </EmployeesHeader>
-      <Table/>
+      <EmployeesMain>
+        <SearchBar employees={employees} setSearchResults={setSearchResults}/>
+      </EmployeesMain>
       <EmployeesFooter>
         <Link to="/">Home</Link>
       </EmployeesFooter>
@@ -50,4 +61,7 @@ const EmployeesFooter = styled.footer`
     color: purple;
     font-weight: bold;
   }
+`;
+const EmployeesMain = styled.main`
+color:white;
 `;
