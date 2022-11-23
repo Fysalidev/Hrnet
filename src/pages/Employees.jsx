@@ -3,7 +3,9 @@ import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import SearchBar, {searchBar} from "../components/SearchBar/SearchBar"
+import SearchBar from "../components/SearchBar/SearchBar"
+import Table from "../components/Table/Table"
+
 /* import {employees} from './utils/mockEmployees' */
 
 function Employees() {
@@ -12,7 +14,7 @@ function Employees() {
 
   console.log(employees)
   console.log(searchResults)
-  
+
   return (
     <EmployeesWrapper>
       <EmployeesHeader>
@@ -20,6 +22,7 @@ function Employees() {
       </EmployeesHeader>
       <EmployeesMain>
         <SearchBar employees={employees} setSearchResults={setSearchResults}/>
+        <Table data={searchResults}/>
       </EmployeesMain>
       <EmployeesFooter>
         <Link to="/">Home</Link>
