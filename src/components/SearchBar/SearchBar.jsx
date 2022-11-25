@@ -1,5 +1,5 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+/* import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons"; */
 
 const SearchBar = ({ employees, setSearchResults }) => {
   const handleSubmit = (e) => e.preventDefault();
@@ -33,9 +33,9 @@ const SearchBar = ({ employees, setSearchResults }) => {
           id="search"
           onChange={handleSearchChange}
         />
-        <button className="search__button">
+{/*         <button className="search__button">
           <FontAwesomeIcon icon={faMagnifyingGlass} />
-        </button>
+        </button> */}
       </form>
     </header>
   );
