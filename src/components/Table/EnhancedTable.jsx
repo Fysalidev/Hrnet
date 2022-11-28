@@ -73,7 +73,7 @@ const headCells = [
     id: "street",
     numeric: false,
     disablePadding: false,
-    label: "street",
+    label: "Street",
   },
   {
     id: "city",

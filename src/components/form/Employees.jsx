@@ -19,7 +19,7 @@ function Form() {
   const [birthday, setBirthday] = useState(new Date());
   const [startDay, setStartDay] = useState(new Date());
   const dispatch = useDispatch();
-  
+
   const {
     register,
     handleSubmit,
@@ -29,21 +29,21 @@ function Form() {
   } = useForm({
     resolver: yupResolver(validationSchema),
   });
-  
+
   const { isShowing, toggle: toggleModal } = useModal();
-  
+
   useEffect(() => {
     if (birthDayPicker) {
       const formatedBirthDate = format(birthday, "dd/MM/yyyy");
-      setValue("birthDate", formatedBirthDate, {shouldValidate : true});
+      setValue("birthDate", formatedBirthDate, { shouldValidate: true });
     }
     setBirthDayPicker(false);
-  }, [birthday, setBirthDayPicker,setValue]);
+  }, [birthday, setBirthDayPicker, setValue]);
 
   useEffect(() => {
     if (startDayPicker) {
       const formatedBirthDate = format(startDay, "dd/MM/yyyy");
-      setValue("startDate", formatedBirthDate, {shouldValidate : true});
+      setValue("startDate", formatedBirthDate, { shouldValidate: true });
     }
     setStartDayPicker(false);
   }, [startDay, setStartDayPicker, setValue]);
@@ -55,15 +55,14 @@ function Form() {
   };
 
   const formOnSubmit = (data) => {
-    
-    const newEmployee = data
+    const newEmployee = data;
     dispatch(add(newEmployee));
     toggleModal();
     reset();
   };
 
   return (
-    <form onSubmit={handleSubmit(formOnSubmit)} autoComplete='off'>
+    <form onSubmit={handleSubmit(formOnSubmit)} autoComplete="off">
       <h2>Create Employee</h2>
 
       <fieldset>

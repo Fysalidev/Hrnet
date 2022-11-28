@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { list } from "../data/mockEmployees";
 
 const employeesSlice = createSlice({
   name: "employees",
@@ -9,6 +10,14 @@ const employeesSlice = createSlice({
   reducers: {
     add: (state, action) => {
       state.employees.push(action.payload);
+    },
+
+    fixture: (state) => {
+      list.map((mokedEmployee) => state.employees.push(mokedEmployee));
+    },
+
+    reset: (state) => {
+      state.employees = [];
     },
   },
 });
