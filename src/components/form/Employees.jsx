@@ -36,24 +36,23 @@ function Form() {
     if (birthDayPicker) {
       const formatedBirthDate = format(birthday, "dd/MM/yyyy");
       setValue("birthDate", formatedBirthDate);
-      setBirthDayPicker(false);
     }
-  }, [birthday, setValue]);
+    setBirthDayPicker(false);
+  }, [birthday, setBirthDayPicker,setValue]);
 
   useEffect(() => {
     if (startDayPicker) {
       const formatedBirthDate = format(startDay, "dd/MM/yyyy");
       setValue("startDate", formatedBirthDate);
-      setStartDayPicker(false);
     }
-  }, [startDay, setValue]);
+    setStartDayPicker(false);
+  }, [startDay, setStartDayPicker, setValue]);
 
   const formCancel = () => {
     setBirthDayPicker(false);
     setStartDayPicker(false);
     reset();
   };
-
 
   const formOnSubmit = (data) => {
     
