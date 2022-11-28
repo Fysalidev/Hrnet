@@ -64,7 +64,7 @@ function Form() {
   };
 
   return (
-    <form onSubmit={handleSubmit(formOnSubmit)}>
+    <form onSubmit={handleSubmit(formOnSubmit)} autoComplete='off'>
       <h2>Create Employee</h2>
 
       <fieldset>
