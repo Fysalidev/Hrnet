@@ -27,6 +27,7 @@ const SearchBar = ({ employees, setSearchResults }) => {
   return (
     <header>
       <form className="search" onSubmit={handleSubmit}>
+        <label htmlFor="search">Search :</label>
         <input
           className="search__input"
           type="text"
