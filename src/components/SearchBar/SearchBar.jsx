@@ -1,6 +1,3 @@
-/* import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons"; */
-
 const SearchBar = ({ employees, setSearchResults }) => {
   const handleSubmit = (e) => e.preventDefault();
 
@@ -26,7 +23,7 @@ const SearchBar = ({ employees, setSearchResults }) => {
 
   return (
     <header>
-      <form className="search" onSubmit={handleSubmit}>
+      <form className="search" onSubmit={handleSubmit} autoComplete="off">
         <label htmlFor="search">Search :</label>
         <input
           className="search__input"
@@ -34,9 +31,6 @@ const SearchBar = ({ employees, setSearchResults }) => {
           id="search"
           onChange={handleSearchChange}
         />
-{/*         <button className="search__button">
-          <FontAwesomeIcon icon={faMagnifyingGlass} />
-        </button> */}
       </form>
     </header>
   );
