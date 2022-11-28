@@ -35,7 +35,7 @@ function Form() {
   useEffect(() => {
     if (birthDayPicker) {
       const formatedBirthDate = format(birthday, "dd/MM/yyyy");
-      setValue("birthDate", formatedBirthDate);
+      setValue("birthDate", formatedBirthDate, {shouldValidate : true});
     }
     setBirthDayPicker(false);
   }, [birthday, setBirthDayPicker,setValue]);
@@ -43,7 +43,7 @@ function Form() {
   useEffect(() => {
     if (startDayPicker) {
       const formatedBirthDate = format(startDay, "dd/MM/yyyy");
-      setValue("startDate", formatedBirthDate);
+      setValue("startDate", formatedBirthDate, {shouldValidate : true});
     }
     setStartDayPicker(false);
   }, [startDay, setStartDayPicker, setValue]);

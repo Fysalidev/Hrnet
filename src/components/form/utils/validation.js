@@ -8,7 +8,7 @@ export const validationSchema = Yup.object().shape({
       /^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/,
       "DD/MM/YYYY required 😜"
     )
-    .required("Ce champ est obligatoire"),
+    .required("Date of birth required"),
   startDate: Yup.string()
     .matches(
       /^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/,
@@ -17,7 +17,7 @@ export const validationSchema = Yup.object().shape({
     .required("Start Date required 😜"),
   street: Yup.string().required("Street required 😜"),
   city: Yup.string().required("City required 😜"),
-  state: Yup.string().min(1).required("State required 😜"),
+  state: Yup.string().min(1, "Select a state").required("State required 😜"),
   zipCode: Yup.string().required("Zip Code required 😜"),
-  department: Yup.string().min(1).required("Department required 😜"),
+  department: Yup.string().min(1, "Select a department").required("Department required 😜"),
 });
