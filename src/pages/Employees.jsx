@@ -4,7 +4,6 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import SearchBar from "../components/SearchBar/SearchBar"
-/* import Table from "../components/Table/Table" */
 import EnhancedTable from "../components/Table/EnhancedTable";
 
 function Employees() {
