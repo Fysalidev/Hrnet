@@ -47,7 +47,7 @@ function Form() {
       setValue("startDate", formatedBirthDate, { shouldValidate: true });
     }
     setStartDayPicker(false);
-  }, [startDay, setStartDayPicker, setValue]);
+  }, [startDay,setStartDayPicker, setValue]);
 
   const handleBirthday = (bolean) => {
     setBirthDayPicker(bolean);
