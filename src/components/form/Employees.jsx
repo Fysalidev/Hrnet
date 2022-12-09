@@ -48,6 +48,16 @@ function Form() {
     setStartDayPicker(false);
   }, [startDay, setStartDayPicker, setValue]);
 
+  const handleBirthday = (bolean) => {
+    setBirthDayPicker(bolean);
+    setStartDayPicker(!bolean);
+  }
+
+  const handleStartDay = (bolean) => {
+    setStartDayPicker(bolean);
+    setBirthDayPicker(!bolean);
+  }
+
   const formCancel = () => {
     setBirthDayPicker(false);
     setStartDayPicker(false);
@@ -87,7 +97,7 @@ function Form() {
           <input
             type="text"
             placeholder="jj/mm/aaaa..."
-            onFocus={() => setBirthDayPicker(true)}
+            onFocus={() => handleBirthday(true)}
             {...register("birthDate")}
           />
           <span className="validation">{errors.birthDate?.message}</span>
@@ -107,7 +117,7 @@ function Form() {
           <input
             type="text"
             placeholder="jj/mm/aaaa..."
-            onFocus={() => setStartDayPicker(true)}
+            onFocus={() => handleStartDay(true)}
             {...register("startDate")}
           />
           <span className="validation">{errors.startDate?.message}</span>
