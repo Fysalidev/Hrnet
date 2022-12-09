@@ -29,16 +29,16 @@ const HomeWrapper = styled.div`
     font-family: "Comfortaa", cursive;
     font-size: 2rem;
     font-weight: bold;
-    margin-top: 0.5rem;
+    margin-top: 0.1rem;
   }
   & a {
-    color: white;
+    color:rgb(45, 49, 12);
     font-family: "Comfortaa", cursive;
-    font-size: 14px;
+    font-size: 16px;
     text-decoration: none;
   }
   & a:hover {
-    color: purple;
+    color: rgb(21, 22, 6);
     font-weight: bold;
   }
 `;

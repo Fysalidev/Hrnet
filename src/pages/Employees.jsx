@@ -3,12 +3,12 @@ import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import SearchBar from "../components/SearchBar/SearchBar"
+import SearchBar from "../components/SearchBar/SearchBar";
 import EnhancedTable from "../components/Table/EnhancedTable";
 
 function Employees() {
   const employees = useSelector((state) => state.employees.employees);
-  const [searchResults, setSearchResults] = useState([...employees])
+  const [searchResults, setSearchResults] = useState([...employees]);
 
   return (
     <EmployeesWrapper>
@@ -16,8 +16,8 @@ function Employees() {
         <EmployeesTitle>Current Employees</EmployeesTitle>
       </EmployeesHeader>
       <EmployeesMain>
-        <SearchBar employees={employees} setSearchResults={setSearchResults}/>
-        <EnhancedTable data={searchResults}/>
+        <SearchBar employees={employees} setSearchResults={setSearchResults} />
+        <EnhancedTable data={searchResults} />
       </EmployeesMain>
       <EmployeesFooter>
         <Link to="/">Home</Link>
@@ -47,6 +47,13 @@ const EmployeesTitle = styled.h1`
   margin: 0;
 `;
 
+const EmployeesMain = styled.main`
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem
+`;
+
 const EmployeesFooter = styled.footer`
   text-align: center;
   & a {
@@ -59,7 +66,4 @@ const EmployeesFooter = styled.footer`
     color: purple;
     font-weight: bold;
   }
-`;
-const EmployeesMain = styled.main`
-color:white;
 `;

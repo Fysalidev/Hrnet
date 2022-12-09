@@ -1,3 +1,5 @@
+import styled from "styled-components";
+
 const SearchBar = ({ employees, setSearchResults }) => {
   const handleSubmit = (e) => e.preventDefault();
 
@@ -22,8 +24,8 @@ const SearchBar = ({ employees, setSearchResults }) => {
   };
 
   return (
-    <header>
-      <form className="search" onSubmit={handleSubmit} autoComplete="off">
+    <Wrapper>
+      <Form className="search" onSubmit={handleSubmit} autoComplete="off">
         <label htmlFor="search">Search :</label>
         <input
           className="search__input"
@@ -31,8 +33,19 @@ const SearchBar = ({ employees, setSearchResults }) => {
           id="search"
           onChange={handleSearchChange}
         />
-      </form>
-    </header>
+      </Form>
+    </Wrapper>
   );
 };
 export default SearchBar;
+
+const Wrapper = styled.div`
+width: 100%;
+display: flex;
+justify-content: center;
+`;
+
+const Form = styled.form`
+max-width: 300px;
+`;
+

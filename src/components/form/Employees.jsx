@@ -1,5 +1,5 @@
-import "./utils/form_styles.css";
 import "react-day-picker/dist/style.css";
+import "./utils/datepicker_styles.css";
 import React from "react";
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
@@ -12,6 +12,7 @@ import useModal from "../modal/utils/useModal";
 import Modal from "../modal/modal";
 import { add } from "../../redux/reducers";
 import { useDispatch } from "react-redux";
+import styled from "styled-components";
 
 function Form() {
   const [birthDayPicker, setBirthDayPicker] = useState(false);
@@ -51,12 +52,12 @@ function Form() {
   const handleBirthday = (bolean) => {
     setBirthDayPicker(bolean);
     setStartDayPicker(!bolean);
-  }
+  };
 
   const handleStartDay = (bolean) => {
     setStartDayPicker(bolean);
     setBirthDayPicker(!bolean);
-  }
+  };
 
   const formCancel = () => {
     setBirthDayPicker(false);
@@ -72,35 +73,41 @@ function Form() {
   };
 
   return (
-    <form onSubmit={handleSubmit(formOnSubmit)} autoComplete="off">
-      <h2>Create Employee</h2>
-      <div className="layout_row">
-        <fieldset>
-          <legend>Employee</legend>
-          <label htmlFor="fistName">First Name :</label>
-          <input
+    <StyledForm onSubmit={handleSubmit(formOnSubmit)} autoComplete="off">
+      <StyledTitle>Create Employee</StyledTitle>
+      <StyledFormLayout>
+        <StyledFieldSet>
+          <StyledLegend>Employee</StyledLegend>
+          <StyledLabel htmlFor="fistName">First Name :</StyledLabel>
+          <StyledFormInput
             type="text"
             placeholder="First name..."
             {...register("firstName")}
           />
-          <span className="validation">{errors.firstName?.message}</span>
+          <StyledFormValidation className="validation">
+            {errors.firstName?.message}
+          </StyledFormValidation>
 
-          <label htmlFor="lastName">Last Name :</label>
-          <input
+          <StyledLabel htmlFor="lastName">Last Name :</StyledLabel>
+          <StyledFormInput
             type="text"
             placeholder="Last name..."
             {...register("lastName")}
           />
-          <span className="validation">{errors.lastName?.message}</span>
+          <StyledFormValidation className="validation">
+            {errors.lastName?.message}
+          </StyledFormValidation>
 
-          <label htmlFor="birthDate">Date of Birth :</label>
-          <input
+          <StyledLabel htmlFor="birthDate">Date of Birth :</StyledLabel>
+          <StyledFormInput
             type="text"
             placeholder="jj/mm/aaaa..."
             onFocus={() => handleBirthday(true)}
             {...register("birthDate")}
           />
-          <span className="validation">{errors.birthDate?.message}</span>
+          <StyledFormValidation className="validation">
+            {errors.birthDate?.message}
+          </StyledFormValidation>
 
           {birthDayPicker && (
             <DayPicker
@@ -113,14 +120,16 @@ function Form() {
               captionLayout="dropdown"
             />
           )}
-          <label htmlFor="startDate">Start Date :</label>
-          <input
+          <StyledLabel htmlFor="startDate">Start Date :</StyledLabel>
+          <StyledFormInput
             type="text"
             placeholder="jj/mm/aaaa..."
             onFocus={() => handleStartDay(true)}
             {...register("startDate")}
           />
-          <span className="validation">{errors.startDate?.message}</span>
+          <StyledFormValidation className="validation">
+            {errors.startDate?.message}
+          </StyledFormValidation>
 
           {startDayPicker && (
             <DayPicker
@@ -133,21 +142,33 @@ function Form() {
               captionLayout="dropdown"
             />
           )}
-        </fieldset>
+        </StyledFieldSet>
 
-        <fieldset>
-          <legend>Address</legend>
+        <StyledFieldSet>
+          <StyledLegend>Address</StyledLegend>
 
-          <label htmlFor="street">Street :</label>
-          <input type="text" placeholder="Street..." {...register("street")} />
-          <span className="validation">{errors.street?.message}</span>
+          <StyledLabel htmlFor="street">Street :</StyledLabel>
+          <StyledFormInput
+            type="text"
+            placeholder="Street..."
+            {...register("street")}
+          />
+          <StyledFormValidation className="validation">
+            {errors.street?.message}
+          </StyledFormValidation>
 
-          <label htmlFor="city">City :</label>
-          <input type="text" placeholder="City..." {...register("city")} />
-          <span className="validation">{errors.city?.message}</span>
+          <StyledLabel htmlFor="city">City :</StyledLabel>
+          <StyledFormInput
+            type="text"
+            placeholder="City..."
+            {...register("city")}
+          />
+          <StyledFormValidation className="validation">
+            {errors.city?.message}
+          </StyledFormValidation>
 
-          <label htmlFor="state">State :</label>
-          <select
+          <StyledLabel htmlFor="state">State :</StyledLabel>
+          <StyledFormSelect
             type="text"
             placeholder="Select a state"
             {...register("state")}
@@ -157,23 +178,27 @@ function Form() {
                 {item.name}
               </option>
             ))}
-          </select>
-          <span className="validation">{errors.state?.message}</span>
+          </StyledFormSelect>
+          <StyledFormValidation className="validation">
+            {errors.state?.message}
+          </StyledFormValidation>
 
-          <label htmlFor="zipCode">Zip Code :</label>
-          <input
+          <StyledLabel htmlFor="zipCode">Zip Code :</StyledLabel>
+          <StyledFormInput
             type="text"
             placeholder="Zip Code..."
             {...register("zipCode")}
           />
-          <span className="validation">{errors.zipCode?.message}</span>
-        </fieldset>
+          <StyledFormValidation className="validation">
+            {errors.zipCode?.message}
+          </StyledFormValidation>
+        </StyledFieldSet>
         <div className="layout_column">
-          <fieldset>
-            <legend>Company</legend>
+          <StyledFieldSet>
+            <StyledLegend>Company</StyledLegend>
 
-            <label htmlFor="department">Department :</label>
-            <select
+            <StyledLabel htmlFor="department">Department :</StyledLabel>
+            <StyledFormSelect
               type="text"
               placeholder="Select a department"
               {...register("department")}
@@ -183,22 +208,120 @@ function Form() {
                   {item.name}
                 </option>
               ))}
-            </select>
-            <span className="validation">{errors.department?.message}</span>
-          </fieldset>
+            </StyledFormSelect>
+            <StyledFormValidation className="validation">
+              {errors.department?.message}
+            </StyledFormValidation>
+          </StyledFieldSet>
 
-          <div className="bouttons">
-            <input type="submit" />
-            <button type="reset" onClick={() => formCancel()}>
+          <StyledFormButtons>
+            <FormButtons type="submit">Save</FormButtons>
+            <FormButtons type="reset" onClick={() => formCancel()}>
               Cancel
-            </button>
-          </div>
+            </FormButtons>
+          </StyledFormButtons>
         </div>
-      </div>
+      </StyledFormLayout>
 
       <Modal isShowing={isShowing} hide={toggleModal} />
-    </form>
+    </StyledForm>
   );
 }
 
 export default Form;
+
+const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  margin-top: 0.6rem;
+`;
+
+const StyledTitle = styled.h2`
+  color: white;
+  font-family: "Comfortaa", cursive;
+  font-weight: bold;
+  margin: 0;
+  text-align: center;
+`;
+
+const StyledFormLayout = styled.div`
+  display: flex;
+  margin-top: 0.5rem;
+`;
+
+const StyledFieldSet = styled.fieldset`
+  color: white;
+  border: none;
+  width: 350px;
+`;
+
+const StyledLegend = styled.legend`
+  text-align: left;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: "Comfortaa", cursive;
+`;
+
+const StyledLabel = styled.label`
+  line-height: 2;
+  text-align: left;
+  display: block;
+  color: white;
+  font-size: 15px;
+  font-weight: 300;
+  font-family: "Comfortaa", cursive;
+`;
+
+const StyledFormInput = styled.input`
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid white;
+  padding: 10px 15px;
+  font-size: 14px;
+`;
+
+const StyledFormSelect = styled.select`
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid white;
+  padding: 10px 15px;
+  font-size: 14px;
+`;
+
+const StyledFormValidation = styled.span`
+  color: rgba(224, 248, 12, 0.906);
+  font-weight: 400;
+  font-family: "Comfortaa", cursive;
+`;
+
+const StyledFormButtons = styled.div`
+  padding: 0 1rem;
+  margin-top: 3rem;
+`;
+
+const FormButtons = styled.button`
+  background: rgb(45, 49, 12);
+  color: white;
+  text-transform: uppercase;
+  border: none;
+  padding: 20px;
+  font-size: 16px;
+  font-weight: 100;
+  letter-spacing: 10px;
+  width: 100%;
+  border-radius: 4px;
+  margin-top: 1rem;
+  &&:hover {
+    background: rgb(21, 22, 6);
+  }
+  &&:active {
+    transition: 0.3s all;
+    transform: translateY(3px);
+    border: 1px solid transparent;
+    opacity: 0.8;
+  }
+`;
