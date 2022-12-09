@@ -1,5 +1,6 @@
 import "react-day-picker/dist/style.css";
 import "./utils/datepicker_styles.css";
+import styled from "styled-components";
 import React from "react";
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
@@ -12,7 +13,6 @@ import useModal from "../modal/utils/useModal";
 import Modal from "../modal/modal";
 import { add } from "../../redux/reducers";
 import { useDispatch } from "react-redux";
-import styled from "styled-components";
 
 function Form() {
   const [birthDayPicker, setBirthDayPicker] = useState(false);
@@ -233,8 +233,7 @@ export default Form;
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
-  margin-top: 0.6rem;
+  margin: 0.7rem auto 0 auto;
 `;
 
 const StyledTitle = styled.h2`
@@ -243,11 +242,16 @@ const StyledTitle = styled.h2`
   font-weight: bold;
   margin: 0;
   text-align: center;
+  margin-bottom: 0.5rem;
 `;
 
 const StyledFormLayout = styled.div`
   display: flex;
   margin-top: 0.5rem;
+  @media (max-width: 1050px) {
+    flex-direction: column;
+    gap: 1rem;
+  }
 `;
 
 const StyledFieldSet = styled.fieldset`
@@ -279,7 +283,7 @@ const StyledFormInput = styled.input`
   width: 100%;
   border-radius: 4px;
   border: 1px solid white;
-  padding: 10px 15px;
+  padding: 5px 15px;
   font-size: 14px;
 `;
 
@@ -288,7 +292,7 @@ const StyledFormSelect = styled.select`
   width: 100%;
   border-radius: 4px;
   border: 1px solid white;
-  padding: 10px 15px;
+  padding: 5px 15px;
   font-size: 14px;
 `;
 
@@ -300,7 +304,7 @@ const StyledFormValidation = styled.span`
 
 const StyledFormButtons = styled.div`
   padding: 0 1rem;
-  margin-top: 3rem;
+  margin-top: 1.1rem;
 `;
 
 const FormButtons = styled.button`

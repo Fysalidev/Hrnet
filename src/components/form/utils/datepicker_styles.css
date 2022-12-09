@@ -1,3 +1,7 @@
+.rdp {
+  color: rgb(21, 22, 6);
+}
+
 .rdp-day_selected {
   background: rgb(21, 22, 6) !important;
 }
