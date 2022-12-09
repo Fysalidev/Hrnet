@@ -27,13 +27,14 @@ const HomeWrapper = styled.div`
   & h1 {
     color: white;
     font-family: "Comfortaa", cursive;
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: bold;
+    margin-top: 0.5rem;
   }
   & a {
     color: white;
     font-family: "Comfortaa", cursive;
-    font-size: 1rem;
+    font-size: 14px;
     text-decoration: none;
   }
   & a:hover {
@@ -47,9 +48,8 @@ const HomeHeader = styled.header`
   display: flex;
   flex-direction: column;
   font-family: "Roboto Flex", sans-serif;
-  gap: 0.5rem;
+  gap: 0.1rem;
   justify-content: center;
-  padding: 1rem;
 `;
 
 const HeaderTitle = styled.h1`
@@ -57,12 +57,12 @@ const HeaderTitle = styled.h1`
 `;
 
 const HeaderNav = styled.nav`
-  padding: 1rem;
+  padding: 0rem;
 `;
 
 const HomeMain = styled.main`
   display: flex;
   align-items: center;
   justify-content: center;
-  /* padding: 1rem; */
+  margin-top: 0.5rem;
 `;

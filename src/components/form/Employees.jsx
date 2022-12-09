@@ -64,116 +64,126 @@ function Form() {
   return (
     <form onSubmit={handleSubmit(formOnSubmit)} autoComplete="off">
       <h2>Create Employee</h2>
-
-      <fieldset>
-        <legend>Employee</legend>
-        <label htmlFor="fistName">First Name :</label>
-        <input
-          type="text"
-          placeholder="First name..."
-          {...register("firstName")}
-        />
-        <span className="validation">{errors.firstName?.message}</span>
-
-        <label htmlFor="lastName">Last Name :</label>
-        <input
-          type="text"
-          placeholder="Last name..."
-          {...register("lastName")}
-        />
-        <span className="validation">{errors.lastName?.message}</span>
-
-        <label htmlFor="birthDate">Date of Birth :</label>
-        <input
-          type="text"
-          placeholder="jj/mm/aaaa..."
-          onFocus={() => setBirthDayPicker(true)}
-          {...register("birthDate")}
-        />
-        <span className="validation">{errors.birthDate?.message}</span>
-
-        {birthDayPicker && (
-          <DayPicker
-            mode="single"
-            required
-            selected={birthday}
-            onSelect={setBirthday}
-            fromYear={1950}
-            toYear={2025}
-            captionLayout="dropdown"
+      <div className="layout_row">
+        <fieldset>
+          <legend>Employee</legend>
+          <label htmlFor="fistName">First Name :</label>
+          <input
+            type="text"
+            placeholder="First name..."
+            {...register("firstName")}
           />
-        )}
-        <label htmlFor="startDate">Start Date :</label>
-        <input
-          type="text"
-          placeholder="jj/mm/aaaa..."
-          onFocus={() => setStartDayPicker(true)}
-          {...register("startDate")}
-        />
-        <span className="validation">{errors.startDate?.message}</span>
+          <span className="validation">{errors.firstName?.message}</span>
 
-        {startDayPicker && (
-          <DayPicker
-            mode="single"
-            required
-            selected={startDay}
-            onSelect={setStartDay}
-            fromYear={1950}
-            toYear={2025}
-            captionLayout="dropdown"
+          <label htmlFor="lastName">Last Name :</label>
+          <input
+            type="text"
+            placeholder="Last name..."
+            {...register("lastName")}
           />
-        )}
-      </fieldset>
+          <span className="validation">{errors.lastName?.message}</span>
 
-      <fieldset>
-        <legend>Address</legend>
+          <label htmlFor="birthDate">Date of Birth :</label>
+          <input
+            type="text"
+            placeholder="jj/mm/aaaa..."
+            onFocus={() => setBirthDayPicker(true)}
+            {...register("birthDate")}
+          />
+          <span className="validation">{errors.birthDate?.message}</span>
 
-        <label htmlFor="street">Street :</label>
-        <input type="text" placeholder="Street..." {...register("street")} />
-        <span className="validation">{errors.street?.message}</span>
+          {birthDayPicker && (
+            <DayPicker
+              mode="single"
+              required
+              selected={birthday}
+              onSelect={setBirthday}
+              fromYear={1950}
+              toYear={2025}
+              captionLayout="dropdown"
+            />
+          )}
+          <label htmlFor="startDate">Start Date :</label>
+          <input
+            type="text"
+            placeholder="jj/mm/aaaa..."
+            onFocus={() => setStartDayPicker(true)}
+            {...register("startDate")}
+          />
+          <span className="validation">{errors.startDate?.message}</span>
 
-        <label htmlFor="city">City :</label>
-        <input type="text" placeholder="City..." {...register("city")} />
-        <span className="validation">{errors.city?.message}</span>
+          {startDayPicker && (
+            <DayPicker
+              mode="single"
+              required
+              selected={startDay}
+              onSelect={setStartDay}
+              fromYear={1950}
+              toYear={2025}
+              captionLayout="dropdown"
+            />
+          )}
+        </fieldset>
 
-        <label htmlFor="state">State :</label>
-        <select type="text" placeholder="Select a state" {...register("state")}>
-          {STATES.map((item) => (
-            <option key={item.value} value={item.value}>
-              {item.name}
-            </option>
-          ))}
-        </select>
-        <span className="validation">{errors.state?.message}</span>
+        <fieldset>
+          <legend>Address</legend>
 
-        <label htmlFor="zipCode">Zip Code :</label>
-        <input type="text" placeholder="Zip Code..." {...register("zipCode")} />
-        <span className="validation">{errors.zipCode?.message}</span>
-      </fieldset>
+          <label htmlFor="street">Street :</label>
+          <input type="text" placeholder="Street..." {...register("street")} />
+          <span className="validation">{errors.street?.message}</span>
 
-      <fieldset>
-        <legend>Company</legend>
+          <label htmlFor="city">City :</label>
+          <input type="text" placeholder="City..." {...register("city")} />
+          <span className="validation">{errors.city?.message}</span>
 
-        <label htmlFor="department">Department :</label>
-        <select
-          type="text"
-          placeholder="Select a department"
-          {...register("department")}
-        >
-          {DEPARTMENTS.map((item) => (
-            <option key={item.value} value={item.value}>
-              {item.name}
-            </option>
-          ))}
-        </select>
-        <span className="validation">{errors.department?.message}</span>
-      </fieldset>
+          <label htmlFor="state">State :</label>
+          <select
+            type="text"
+            placeholder="Select a state"
+            {...register("state")}
+          >
+            {STATES.map((item) => (
+              <option key={item.value} value={item.value}>
+                {item.name}
+              </option>
+            ))}
+          </select>
+          <span className="validation">{errors.state?.message}</span>
 
-      <div className="bouttons">
-        <input type="submit" />
-        <button type="reset" onClick={() => formCancel()}>
-          Cancel
-        </button>
+          <label htmlFor="zipCode">Zip Code :</label>
+          <input
+            type="text"
+            placeholder="Zip Code..."
+            {...register("zipCode")}
+          />
+          <span className="validation">{errors.zipCode?.message}</span>
+        </fieldset>
+        <div className="layout_column">
+          <fieldset>
+            <legend>Company</legend>
+
+            <label htmlFor="department">Department :</label>
+            <select
+              type="text"
+              placeholder="Select a department"
+              {...register("department")}
+            >
+              {DEPARTMENTS.map((item) => (
+                <option key={item.value} value={item.value}>
+                  {item.name}
+                </option>
+              ))}
+            </select>
+            <span className="validation">{errors.department?.message}</span>
+          </fieldset>
+
+          <div className="bouttons">
+            <input type="submit" />
+            <button type="reset" onClick={() => formCancel()}>
+              Cancel
+            </button>
+          </div>
+        </div>
       </div>
 
       <Modal isShowing={isShowing} hide={toggleModal} />
