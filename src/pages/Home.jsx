@@ -32,7 +32,7 @@ const HomeWrapper = styled.div`
     margin-top: 0.1rem;
   }
   & a {
-    color:rgb(45, 49, 12);
+    color: rgb(45, 49, 12);
     font-family: "Comfortaa", cursive;
     font-size: 16px;
     text-decoration: none;
@@ -48,8 +48,9 @@ const HomeHeader = styled.header`
   display: flex;
   flex-direction: column;
   font-family: "Roboto Flex", sans-serif;
-  gap: 0.1rem;
+  gap: 0.5rem;
   justify-content: center;
+  padding: 1rem;
 `;
 
 const HeaderTitle = styled.h1`

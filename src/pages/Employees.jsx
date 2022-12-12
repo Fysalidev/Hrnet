@@ -34,7 +34,6 @@ const EmployeesWrapper = styled.div`
 `;
 
 const EmployeesHeader = styled.header`
-  font-family: "Roboto Flex", sans-serif;
   padding: 1rem;
   text-align: center;
 `;
@@ -42,28 +41,29 @@ const EmployeesHeader = styled.header`
 const EmployeesTitle = styled.h1`
   color: white;
   font-family: "Comfortaa", cursive;
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: bold;
   margin: 0;
 `;
 
 const EmployeesMain = styled.main`
-  display:flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem
+  gap: 1rem;
+  margin: 1rem;
 `;
 
 const EmployeesFooter = styled.footer`
   text-align: center;
   & a {
-    color: white;
+    color: rgb(45, 49, 12);
     font-family: "Comfortaa", cursive;
-    font-size: 1rem;
+    font-size: 16px;
     text-decoration: none;
   }
   & a:hover {
-    color: purple;
+    color: rgb(21, 22, 6);
     font-weight: bold;
   }
 `;

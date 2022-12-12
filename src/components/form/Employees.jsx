@@ -283,8 +283,9 @@ const StyledFormInput = styled.input`
   width: 100%;
   border-radius: 4px;
   border: 1px solid white;
-  padding: 5px 15px;
+  padding: 10px 15px;
   font-size: 14px;
+  margin-bottom: 0.5rem;
 `;
 
 const StyledFormSelect = styled.select`
@@ -292,8 +293,9 @@ const StyledFormSelect = styled.select`
   width: 100%;
   border-radius: 4px;
   border: 1px solid white;
-  padding: 5px 15px;
+  padding: 10px 15px;
   font-size: 14px;
+  margin-bottom: 0.5rem;
 `;
 
 const StyledFormValidation = styled.span`

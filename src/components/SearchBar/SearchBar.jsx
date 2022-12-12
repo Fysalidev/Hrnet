@@ -26,8 +26,8 @@ const SearchBar = ({ employees, setSearchResults }) => {
   return (
     <Wrapper>
       <Form className="search" onSubmit={handleSubmit} autoComplete="off">
-        <label htmlFor="search">Search :</label>
-        <input
+        <FormLabel htmlFor="search">Search : </FormLabel>
+        <FormInput
           className="search__input"
           type="text"
           id="search"
@@ -40,12 +40,30 @@ const SearchBar = ({ employees, setSearchResults }) => {
 export default SearchBar;
 
 const Wrapper = styled.div`
-width: 100%;
-display: flex;
-justify-content: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 `;
 
 const Form = styled.form`
-max-width: 300px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
 `;
 
+const FormLabel = styled.label`
+  font-family: "Comfortaa", cursive;
+  font-size: 1rem;
+  color: white;
+`;
+
+const FormInput = styled.input`
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: 1px solid white;
+  padding: 10px 15px;
+  font-size: 14px;
+  margin-bottom: 0.5rem;
+`;
