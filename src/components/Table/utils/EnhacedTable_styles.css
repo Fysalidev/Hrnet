@@ -1,0 +1,37 @@
+/* Entêtes */
+th.css-1oof506-MuiTableCell-root, th.css-1tb17tz-MuiTableCell-root, .css-1qgma8u-MuiButtonBase-root-MuiTableSortLabel-root.Mui-active {
+    font-family: "Comfortaa",cursive;
+    font-size: 1rem;
+}
+/* Tableau */
+td.css-1ex1afd-MuiTableCell-root, td.css-dsuxgy-MuiTableCell-root {
+    font-family: "Comfortaa",cursive;
+    color:rgb(59, 78, 9);
+    font-weight: 300;
+    
+}
+
+/* Bas du tableau */
+.css-jtlhu6-MuiTablePagination-root:last-child, p.css-pdct74-MuiTablePagination-selectLabel, p.css-194a1fa-MuiSelect-select-MuiInputBase-input.css-194a1fa-MuiSelect-select-MuiInputBase-input.css-194a1fa-MuiSelect-select-MuiInputBase-input, p.css-levciy-MuiTablePagination-displayedRows {
+    font-family: "Comfortaa",cursive;
+    font-size: 1rem;
+}
+
+/* Flêches */
+button.css-zylse7-MuiButtonBase-root-MuiIconButton-root.Mui-disabled{
+    color: black;
+}
+
+
+span.css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked {
+    color: black;
+}
+
+span .css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked+.MuiSwitch-track {
+    background-color: black;
+}
+
+.css-j204z7-MuiFormControlLabel-root .MuiFormControlLabel-label {
+    font-family: "Comfortaa",cursive;
+    font-weight: 500;
+}

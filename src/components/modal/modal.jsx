@@ -1,4 +1,4 @@
-import './utils/modal_styles.css'
+import "./utils/modal_styles.css";
 import React from "react";
 import ReactDOM from "react-dom";
 
