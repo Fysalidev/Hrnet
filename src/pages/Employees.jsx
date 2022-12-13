@@ -3,8 +3,8 @@ import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import SearchBar from "../components/SearchBar/SearchBar";
-import EnhancedTable from "../components/Table/EnhancedTable";
+import SearchBar from "../components/searchBar/SearchBar";
+import EnhancedTable from "../components/table/EnhancedTable";
 
 function Employees() {
   const employees = useSelector((state) => state.employees.employees);

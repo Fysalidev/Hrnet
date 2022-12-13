@@ -1,14 +1,14 @@
+import "./styles.css";
 import "react-day-picker/dist/style.css";
-import "./utils/datepicker_styles.css";
 import styled from "styled-components";
 import React from "react";
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { validationSchema } from "./utils/validation";
+import { validationSchema } from "./validation";
 import { DayPicker } from "react-day-picker";
 import { format } from "date-fns";
-import { STATES, DEPARTMENTS } from "./utils/selects";
+import { STATES, DEPARTMENTS } from "./selects";
 import { add } from "../../redux/reducers";
 import { useDispatch } from "react-redux";
 import { useModal, Modal } from "fysalidev-package";
