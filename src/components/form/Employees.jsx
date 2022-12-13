@@ -9,10 +9,9 @@ import { validationSchema } from "./utils/validation";
 import { DayPicker } from "react-day-picker";
 import { format } from "date-fns";
 import { STATES, DEPARTMENTS } from "./utils/selects";
-import useModal from "../modal/utils/useModal";
-import Modal from "../modal/modal";
 import { add } from "../../redux/reducers";
 import { useDispatch } from "react-redux";
+import { useModal, Modal } from "fysalidev-package";
 
 function Form() {
   const [birthDayPicker, setBirthDayPicker] = useState(false);
@@ -47,7 +46,7 @@ function Form() {
       setValue("startDate", formatedBirthDate, { shouldValidate: true });
     }
     setStartDayPicker(false);
-  }, [startDay,setStartDayPicker, setValue]);
+  }, [startDay, setStartDayPicker, setValue]);
 
   const handleBirthday = (bolean) => {
     setBirthDayPicker(bolean);
@@ -223,7 +222,11 @@ function Form() {
         </div>
       </StyledFormLayout>
 
-      <Modal isShowing={isShowing} hide={toggleModal} />
+      <Modal
+        isShowing={isShowing}
+        hide={toggleModal}
+        title="Employee Created !!!"
+      />
     </StyledForm>
   );
 }
